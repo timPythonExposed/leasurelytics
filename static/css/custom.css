@@ -1,0 +1,36 @@
+/* ===================================================================
+    LeisureLytics — Custom CSS overrides
+   Most styling is handled by Tailwind utility classes in templates.
+   This file covers edge‑cases and global resets.
+   =================================================================== */
+
+/* Smooth scroll for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Hide Alpine x-cloak elements until Alpine initialises */
+[x-cloak] {
+    display: none !important;
+}
+
+/* Subtle focus ring for accessibility */
+:focus-visible {
+    outline: 2px solid #3391ff;
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar (Webkit) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}

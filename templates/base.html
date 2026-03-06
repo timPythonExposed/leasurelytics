@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}LeisureLytics{% endblock %}</title>
+    <meta name="description" content="Forecasting, workforce planning, and revenue management for mid-size leisure companies modernizing beyond spreadsheets and legacy tools." />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand:   { 50:'#eef7ff', 100:'#d9edff', 200:'#bce0ff', 300:'#8eccff', 400:'#59b0ff', 500:'#3391ff', 600:'#1570f5', 700:'#0d5ae1', 800:'#1149b6', 900:'#13408f', 950:'#112957' },
+                        accent:  { 400:'#a78bfa', 500:'#8b5cf6', 600:'#7c3aed' },
+                        surface: { 50:'#f8fafc', 100:'#f1f5f9', 800:'#1e293b', 900:'#0f172a', 950:'#020617' },
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in':      'fadeIn .6s ease-out both',
+                        'fade-in-up':   'fadeInUp .7s ease-out both',
+                        'slide-left':   'slideLeft .6s ease-out both',
+                        'slide-right':  'slideRight .6s ease-out both',
+                        'pulse-slow':   'pulse 4s cubic-bezier(0.4,0,0.6,1) infinite',
+                    },
+                    keyframes: {
+                        fadeIn:      { '0%':{ opacity:0 }, '100%':{ opacity:1 } },
+                        fadeInUp:    { '0%':{ opacity:0, transform:'translateY(24px)' }, '100%':{ opacity:1, transform:'translateY(0)' } },
+                        slideLeft:   { '0%':{ opacity:0, transform:'translateX(40px)' }, '100%':{ opacity:1, transform:'translateX(0)' } },
+                        slideRight:  { '0%':{ opacity:0, transform:'translateX(-40px)' }, '100%':{ opacity:1, transform:'translateX(0)' } },
+                    },
+                },
+            },
+        }
+    </script>
+
+    <!-- Alpine.js (CDN) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <!-- Custom overrides -->
+    <link rel="stylesheet" href="/static/css/custom.css" />
+
+    {% block head_extra %}{% endblock %}
+</head>
+
+<body class="min-h-screen flex flex-col font-sans text-surface-900 antialiased bg-white"
+      x-data="{ mobileOpen: false }">
+
+    <!-- ================================================================== -->
+    <!-- NAVBAR                                                             -->
+    <!-- ================================================================== -->
+    <nav class="fixed inset-x-0 top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-surface-100 transition-all">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-2 group">
+                <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-brand-600 to-accent-500 flex items-center justify-center shadow-md group-hover:shadow-lg transition">
+                    <svg class="h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                </div>
+                <span class="text-lg font-bold tracking-tight text-surface-900">Leisure<span class="text-brand-600">Lytics</span></span>
+            </a>
+
+            <!-- Desktop links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-surface-600">
+                <a href="/"       class="hover:text-brand-600 transition">Home</a>
+                <a href="/about"  class="hover:text-brand-600 transition">About</a>
+                <a href="/contact" class="hover:text-brand-600 transition">Contact</a>
+                <a href="/contact"
+                   class="ml-2 inline-flex items-center px-4 py-2 rounded-lg text-white bg-brand-600 hover:bg-brand-700 shadow hover:shadow-md transition text-sm font-semibold">
+                    Get Started
+                </a>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button @click="mobileOpen = !mobileOpen" class="md:hidden p-2 rounded-md hover:bg-surface-100 transition" aria-label="Toggle menu">
+                <svg class="h-6 w-6 text-surface-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path x-show="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                    <path x-show="mobileOpen" x-cloak stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile menu -->
+        <div x-show="mobileOpen" x-cloak x-transition class="md:hidden border-t border-surface-100 bg-white">
+            <div class="space-y-1 px-4 py-3">
+                <a href="/"        class="block px-3 py-2 rounded-md hover:bg-surface-50 text-surface-700 font-medium">Home</a>
+                <a href="/about"   class="block px-3 py-2 rounded-md hover:bg-surface-50 text-surface-700 font-medium">About</a>
+                <a href="/contact" class="block px-3 py-2 rounded-md hover:bg-surface-50 text-surface-700 font-medium">Contact</a>
+                <a href="/contact" class="block mt-2 text-center px-4 py-2 rounded-lg text-white bg-brand-600 font-semibold">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Spacer for fixed nav -->
+    <div class="h-16"></div>
+
+    <!-- ================================================================== -->
+    <!-- PAGE CONTENT                                                       -->
+    <!-- ================================================================== -->
+    <main class="flex-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ================================================================== -->
+    <!-- FOOTER                                                             -->
+    <!-- ================================================================== -->
+    <footer class="bg-surface-950 text-surface-50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <!-- Brand -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-brand-500 to-accent-500 flex items-center justify-center">
+                            <svg class="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        </div>
+                        <span class="text-lg font-bold tracking-tight">Leisure<span class="text-brand-400">Lytics</span></span>
+                    </div>
+                    <p class="text-surface-100/70 text-sm leading-relaxed max-w-md">
+                        Forecasting-led planning for mid-size leisure companies.
+                        We combine agentic engineering with hands-on human guidance.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-surface-100/50 mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/"        class="text-surface-100/70 hover:text-white transition">Home</a></li>
+                        <li><a href="/about"   class="text-surface-100/70 hover:text-white transition">About</a></li>
+                        <li><a href="/contact" class="text-surface-100/70 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-surface-100/50 mb-4">Get in Touch</h4>
+                    <ul class="space-y-2 text-sm text-surface-100/70">
+                        <li>info@LeasureLytics.com</li>
+                        <li>Putte, Belgium</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-surface-100/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-surface-100/40">
+                <p>&copy; {{ 2026 }} LeisureLytics. All rights reserved.</p>
+                <p>Built by agentic engineers, with humans in the loop.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

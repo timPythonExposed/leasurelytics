@@ -1,0 +1,343 @@
+{% extends "base.html" %}
+{% block title %}LeisureLytics — Forecasting, Planning, Revenue Management{% endblock %}
+
+{% block content %}
+
+<!-- ====================================================================== -->
+<!-- HERO                                                                   -->
+<!-- ====================================================================== -->
+<section class="relative overflow-hidden bg-gradient-to-b from-brand-50/60 via-white to-white">
+    <!-- Decorative blobs -->
+    <div class="pointer-events-none absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-brand-200/30 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-32 -left-32 h-[400px] w-[400px] rounded-full bg-accent-400/15 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-24 pb-20 lg:pt-36 lg:pb-32">
+        <div class="mx-auto max-w-3xl text-center animate-fade-in-up">
+            <!-- Badge -->
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-brand-100 px-4 py-1.5 text-xs font-semibold text-brand-700 ring-1 ring-brand-200 mb-8">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
+                </span>
+                Built for Leisure Operators
+            </span>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-surface-950 leading-[1.1]">
+                Forecasting and planning for<br class="hidden sm:block" />
+                <span class="bg-gradient-to-r from-brand-600 to-accent-500 bg-clip-text text-transparent">leisure teams outgrowing spreadsheets.</span>
+            </h1>
+
+            <p class="mt-6 text-lg sm:text-xl text-surface-600 leading-relaxed max-w-2xl mx-auto">
+                We help mid-size leisure companies move from Excel, legacy software, and expensive suites
+                to practical forecasting, workforce planning, and revenue management with a personal team.
+            </p>
+
+            <!-- CTA buttons -->
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="/contact"
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-600/25 hover:shadow-xl hover:shadow-brand-600/30 transition-all text-base font-semibold">
+                    Request a Demo
+                    <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                </a>
+                <a href="/about"
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl text-surface-700 bg-white ring-1 ring-surface-200 hover:ring-surface-300 hover:shadow-md transition-all text-base font-semibold">
+                    Learn More
+                </a>
+            </div>
+        </div>
+
+        <!-- Hero visual — abstract "agent flow" diagram -->
+        <div class="mt-20 mx-auto max-w-4xl animate-fade-in" style="animation-delay:.35s">
+            <div class="relative rounded-2xl bg-surface-950 shadow-2xl ring-1 ring-white/10 overflow-hidden p-8 sm:p-12">
+                <!-- Glowing grid overlay -->
+                <div class="absolute inset-0 opacity-[0.04]" style="background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22><rect width=%2240%22 height=%2240%22 fill=%22none%22 stroke=%22white%22 stroke-width=%220.5%22/></svg>');"></div>
+
+                <div class="relative grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center">
+                    <!-- Step cards -->
+                    <div class="group rounded-xl bg-surface-800/60 border border-surface-100/5 p-5 hover:border-brand-500/30 hover:bg-surface-800 transition-all duration-300">
+                        <div class="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-brand-500/10 text-brand-400 group-hover:bg-brand-500/20 transition">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+                        </div>
+                        <p class="text-xs font-semibold text-surface-100/80">Ingest</p>
+                        <p class="mt-1 text-[11px] text-surface-100/40 leading-snug">Excel, ticketing, POS, and ops exports</p>
+                    </div>
+
+                    <div class="group rounded-xl bg-surface-800/60 border border-surface-100/5 p-5 hover:border-accent-500/30 hover:bg-surface-800 transition-all duration-300">
+                        <div class="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-accent-500/10 text-accent-400 group-hover:bg-accent-500/20 transition">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5M14.25 3.104c.251.023.501.05.75.082M19 14.5l-2.47 2.47a2.25 2.25 0 01-1.59.659H9.06a2.25 2.25 0 01-1.591-.659L5 14.5m14 0V18a2.25 2.25 0 01-2.25 2.25H7.25A2.25 2.25 0 015 18v-3.5"/></svg>
+                        </div>
+                        <p class="text-xs font-semibold text-surface-100/80">Model</p>
+                        <p class="mt-1 text-[11px] text-surface-100/40 leading-snug">Build and tune practical forecast models</p>
+                    </div>
+
+                    <div class="group rounded-xl bg-surface-800/60 border border-surface-100/5 p-5 hover:border-brand-500/30 hover:bg-surface-800 transition-all duration-300">
+                        <div class="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-brand-500/10 text-brand-400 group-hover:bg-brand-500/20 transition">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/></svg>
+                        </div>
+                        <p class="text-xs font-semibold text-surface-100/80">Predict</p>
+                        <p class="mt-1 text-[11px] text-surface-100/40 leading-snug">Demand and revenue scenarios</p>
+                    </div>
+
+                    <div class="group rounded-xl bg-surface-800/60 border border-surface-100/5 p-5 hover:border-accent-500/30 hover:bg-surface-800 transition-all duration-300">
+                        <div class="mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-accent-500/10 text-accent-400 group-hover:bg-accent-500/20 transition">
+                            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/></svg>
+                        </div>
+                        <p class="text-xs font-semibold text-surface-100/80">Schedule</p>
+                        <p class="mt-1 text-[11px] text-surface-100/40 leading-snug">Workforce plans your team can use</p>
+                    </div>
+                </div>
+
+                <!-- Animated connector line -->
+                <div class="hidden sm:block absolute top-1/2 left-[15%] right-[15%] h-px bg-gradient-to-r from-brand-500/0 via-brand-500/40 to-brand-500/0 -translate-y-1/2 -z-0"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- COMPANIES WE WORKED WITH                                               -->
+<!-- ====================================================================== -->
+<section class="py-16 sm:py-20 bg-white border-b border-surface-100">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <p class="text-sm font-semibold text-brand-600 uppercase tracking-widest mb-2">Worked With</p>
+            <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-surface-950">
+                Teams we have supported
+            </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div class="rounded-2xl border border-surface-200 bg-surface-50 px-6 py-5 flex items-center gap-4">
+                <div class="h-11 w-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 19.5h19.5m-18-3h16.5M6 16.5V8.25A2.25 2.25 0 018.25 6h7.5A2.25 2.25 0 0118 8.25v8.25M9.75 9.75h.008v.008H9.75V9.75zm0 3h.008v.008H9.75v-.008zm0 3h.008v.008H9.75v-.008zm4.5-6h.008v.008h-.008V9.75zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008"/></svg>
+                </div>
+                <p class="text-sm font-semibold text-surface-800">Brussels Airport</p>
+            </div>
+
+            <div class="rounded-2xl border border-surface-200 bg-surface-50 px-6 py-5 flex items-center gap-4">
+                <div class="h-11 w-11 rounded-xl bg-accent-50 text-accent-600 flex items-center justify-center">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 19.5h19.5M4.5 16.5h15m-14.25-6l5.25 1.5 2.25 3 2.25-1.5 3 1.5.75-1.5-2.25-2.25-3.75-.75-2.25-2.25-2.25-.75-3 1.5z"/></svg>
+                </div>
+                <p class="text-sm font-semibold text-surface-800">Luxembourg airport</p>
+            </div>
+
+            <div class="rounded-2xl border border-surface-200 bg-surface-50 px-6 py-5 flex items-center gap-4">
+                <div class="h-11 w-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 20.25h18M6 20.25V9.75a3 3 0 013-3h6a3 3 0 013 3v10.5M9 12.75h.008v.008H9v-.008zm0 3h.008v.008H9v-.008zm6-3h.008v.008H15v-.008zm0 3h.008v.008H15v-.008"/></svg>
+                </div>
+                <p class="text-sm font-semibold text-surface-800">European Camping Group</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- SOCIAL PROOF / STATS                                                   -->
+<!-- ====================================================================== -->
+<section class="py-16 bg-surface-50 border-y border-surface-100">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" x-data="{ shown: false }" x-intersect.once="shown = true">
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:0s">
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-600">~1 week</p>
+                <p class="mt-1.5 text-sm text-surface-500">Typical PoC kickoff window</p>
+            </div>
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.1s">
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-600">2-4 weeks</p>
+                <p class="mt-1.5 text-sm text-surface-500">First production planning flow</p>
+            </div>
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.2s">
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-600">Excel-first</p>
+                <p class="mt-1.5 text-sm text-surface-500">Show value first: Start without a big data project</p>
+            </div>
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.3s">
+                <p class="text-3xl sm:text-4xl font-extrabold text-brand-600">Human + AI</p>
+                <p class="mt-1.5 text-sm text-surface-500">Agentic delivery with expert oversight</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- FEATURES GRID                                                          -->
+<!-- ====================================================================== -->
+<section class="py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <!-- Section header -->
+        <div class="mx-auto max-w-2xl text-center mb-16">
+            <p class="text-sm font-semibold text-brand-600 uppercase tracking-widest mb-3">Why LeisureLytics</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-surface-950">
+                Built for mid-size leisure businesses.<br class="hidden sm:block" /> Delivered by a strong, personal team.
+            </h2>
+            <p class="mt-4 text-lg text-surface-500 leading-relaxed">
+                Forecasting is at the heart of our work, with workforce planning as a common follow-up
+                and revenue management as a core specialty.
+            </p>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+             x-data="{ shown: false }" x-intersect.once="shown = true">
+
+            <!-- Card 1 -->
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:0s"
+                 class="group relative rounded-2xl bg-white border border-surface-100 p-8 hover:shadow-xl hover:shadow-brand-600/5 hover:border-brand-200 transition-all duration-300">
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 group-hover:bg-brand-100 transition">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456z"/></svg>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-surface-900">Agentic Engineering, Human Oversight</h3>
+                <p class="mt-2 text-sm text-surface-500 leading-relaxed">
+                    We use agents for heavy lifting and most programming, while experienced people stay closely involved
+                    in solution design, validation, and delivery.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.08s"
+                 class="group relative rounded-2xl bg-white border border-surface-100 p-8 hover:shadow-xl hover:shadow-brand-600/5 hover:border-brand-200 transition-all duration-300">
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 group-hover:bg-accent-100 transition">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-surface-900">Excel-First Integration</h3>
+                <p class="mt-2 text-sm text-surface-500 leading-relaxed">
+                    We can start directly from Excel and operational exports to deliver value quickly,
+                    before any larger data engineering effort is needed.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.16s"
+                 class="group relative rounded-2xl bg-white border border-surface-100 p-8 hover:shadow-xl hover:shadow-brand-600/5 hover:border-brand-200 transition-all duration-300">
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 group-hover:bg-brand-100 transition">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-surface-900">Practical Pricing</h3>
+                <p class="mt-2 text-sm text-surface-500 leading-relaxed">
+                    A focused startup model gives you senior forecasting and planning capability
+                    without the overhead of heavyweight enterprise programs.
+                </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.24s"
+                 class="group relative rounded-2xl bg-white border border-surface-100 p-8 hover:shadow-xl hover:shadow-brand-600/5 hover:border-brand-200 transition-all duration-300">
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 group-hover:bg-accent-100 transition">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5a17.92 17.92 0 01-8.716-2.247m0 0A8.966 8.966 0 013 12c0-1.264.26-2.466.732-3.558"/></svg>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-surface-900">Leisure‑Industry Focus</h3>
+                <p class="mt-2 text-sm text-surface-500 leading-relaxed">
+                    Built for attractions, theme parks, zoos, aquariums, museums, holiday parks,
+                    and other experience-led leisure operations.
+                </p>
+            </div>
+
+            <!-- Card 5 -->
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.32s"
+                 class="group relative rounded-2xl bg-white border border-surface-100 p-8 hover:shadow-xl hover:shadow-brand-600/5 hover:border-brand-200 transition-all duration-300">
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 group-hover:bg-brand-100 transition">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6"/></svg>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-surface-900">Demand Forecasting</h3>
+                <p class="mt-2 text-sm text-surface-500 leading-relaxed">
+                    Forecasting is the core engine: visitor demand, weather effects, events, holidays,
+                    and local trends brought together in one reliable planning view.
+                </p>
+            </div>
+
+            <!-- Card 6 -->
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.40s"
+                 class="group relative rounded-2xl bg-white border border-surface-100 p-8 hover:shadow-xl hover:shadow-brand-600/5 hover:border-brand-200 transition-all duration-300">
+                <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-50 text-accent-600 group-hover:bg-accent-100 transition">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>
+                </div>
+                <h3 class="mt-5 text-lg font-bold text-surface-900">Workforce + Revenue Decisions</h3>
+                <p class="mt-2 text-sm text-surface-500 leading-relaxed">
+                    Workforce planning is a frequent next step, and we also support revenue management
+                    decisions such as pricing, capacity, and demand shaping.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- HOW IT WORKS                                                           -->
+<!-- ====================================================================== -->
+<section class="py-24 sm:py-32 bg-surface-950 text-white overflow-hidden">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-2xl text-center mb-16">
+            <p class="text-sm font-semibold text-brand-400 uppercase tracking-widest mb-3">How It Works</p>
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+                From business case to usable solution.
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 lg:gap-12"
+             x-data="{ shown: false }" x-intersect.once="shown = true">
+
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:0s" class="text-center">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-500/10 ring-1 ring-brand-500/20 mb-5">
+                    <span class="text-2xl font-black text-brand-400">1</span>
+                </div>
+                <h3 class="text-lg font-bold">Connect</h3>
+                <p class="mt-2 text-sm text-surface-100/60 leading-relaxed">
+                    We start by understanding your business case, current planning process,
+                    and what success should look like for your teams.
+                </p>
+            </div>
+
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.12s" class="text-center">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-500/10 ring-1 ring-accent-500/20 mb-5">
+                    <span class="text-2xl font-black text-accent-400">2</span>
+                </div>
+                <h3 class="text-lg font-bold">Prototype</h3>
+                <p class="mt-2 text-sm text-surface-100/60 leading-relaxed">
+                    In a short PoC cycle (often around a week), we build a usable UI that gives
+                    your company a concrete view of your data and the solution direction.
+                </p>
+            </div>
+
+            <div :class="shown && 'animate-fade-in-up'" style="animation-delay:.24s" class="text-center">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-500/10 ring-1 ring-brand-500/20 mb-5">
+                    <span class="text-2xl font-black text-brand-400">3</span>
+                </div>
+                <h3 class="text-lg font-bold">Deliver</h3>
+                <p class="mt-2 text-sm text-surface-100/60 leading-relaxed">
+                    We then turn the PoC into production planning capability in a focused follow-up sprint,
+                    while making sure your teams understand and trust what they are buying.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- CTA SECTION                                                            -->
+<!-- ====================================================================== -->
+<section class="relative py-24 sm:py-32 overflow-hidden">
+    <!-- BG gradient -->
+    <div class="pointer-events-none absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-accent-50"></div>
+
+    <div class="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-surface-950">
+            Ready to modernize planning without heavy transformation risk?
+        </h2>
+        <p class="mt-4 text-lg text-surface-600 leading-relaxed">
+            See how LeisureLytics can deliver practical value fast,
+            starting from the data you already have.
+        </p>
+        <div class="mt-10">
+            <a href="/contact"
+               class="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-600/25 hover:shadow-xl hover:shadow-brand-600/30 transition-all text-base font-semibold">
+                Get in Touch
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
