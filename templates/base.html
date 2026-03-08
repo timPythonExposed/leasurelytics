@@ -40,6 +40,7 @@
     </script>
 
     <!-- Alpine.js (CDN) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
     <!-- Inter font -->
@@ -54,7 +55,7 @@
 </head>
 
 <body class="min-h-screen flex flex-col font-sans text-surface-900 antialiased bg-white"
-      x-data="{ mobileOpen: false }">
+      x-data="{ mobileOpen: false, solOpen: false }">
 
     <!-- ================================================================== -->
     <!-- NAVBAR                                                             -->
@@ -73,6 +74,29 @@
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-surface-600">
                 <a href="/"       class="hover:text-brand-600 transition">Home</a>
                 <a href="/about"  class="hover:text-brand-600 transition">About</a>
+                <a href="/origin-story" class="hover:text-brand-600 transition">Origin Story</a>
+
+                <!-- Solutions dropdown -->
+                <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
+                    <button class="hover:text-brand-600 transition inline-flex items-center gap-1">
+                        Solutions
+                        <svg class="h-3.5 w-3.5 transition-transform" :class="open && 'rotate-180'" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+                    </button>
+                    <div x-show="open" x-cloak x-transition
+                         class="absolute left-1/2 -translate-x-1/2 top-full pt-2 z-50">
+                        <div class="w-64 rounded-xl bg-white border border-surface-100 shadow-xl p-2">
+                            <a href="/revenue-management-engine" class="block px-4 py-2.5 rounded-lg hover:bg-surface-50 text-surface-700 text-sm font-medium transition">
+                                <span class="block font-semibold">Revenue Engine</span>
+                                <span class="text-xs text-surface-500">Forecasting &amp; pricing pipeline</span>
+                            </a>
+                            <a href="/workforce-planning-agent" class="block px-4 py-2.5 rounded-lg hover:bg-surface-50 text-surface-700 text-sm font-medium transition">
+                                <span class="block font-semibold">Workforce Agent</span>
+                                <span class="text-xs text-surface-500">Demand-driven shift planning</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <a href="/contact" class="hover:text-brand-600 transition">Contact</a>
                 <a href="/contact"
                    class="ml-2 inline-flex items-center px-4 py-2 rounded-lg text-white bg-brand-600 hover:bg-brand-700 shadow hover:shadow-md transition text-sm font-semibold">
@@ -94,6 +118,10 @@
             <div class="space-y-1 px-4 py-3">
                 <a href="/"        class="block px-3 py-2 rounded-md hover:bg-surface-50 text-surface-700 font-medium">Home</a>
                 <a href="/about"   class="block px-3 py-2 rounded-md hover:bg-surface-50 text-surface-700 font-medium">About</a>
+                <a href="/origin-story" class="block px-3 py-2 rounded-md hover:bg-surface-50 text-surface-700 font-medium">Origin Story</a>
+                <p class="px-3 pt-3 pb-1 text-xs font-semibold uppercase tracking-widest text-surface-400">Solutions</p>
+                <a href="/revenue-management-engine" class="block px-3 py-2 pl-6 rounded-md hover:bg-surface-50 text-surface-600 font-medium">Revenue Engine</a>
+                <a href="/workforce-planning-agent" class="block px-3 py-2 pl-6 rounded-md hover:bg-surface-50 text-surface-600 font-medium">Workforce Agent</a>
                 <a href="/contact" class="block px-3 py-2 rounded-md hover:bg-surface-50 text-surface-700 font-medium">Contact</a>
                 <a href="/contact" class="block mt-2 text-center px-4 py-2 rounded-lg text-white bg-brand-600 font-semibold">Get Started</a>
             </div>
@@ -136,7 +164,13 @@
                     <ul class="space-y-2 text-sm">
                         <li><a href="/"        class="text-surface-100/70 hover:text-white transition">Home</a></li>
                         <li><a href="/about"   class="text-surface-100/70 hover:text-white transition">About</a></li>
+                        <li><a href="/origin-story" class="text-surface-100/70 hover:text-white transition">Origin Story</a></li>
                         <li><a href="/contact" class="text-surface-100/70 hover:text-white transition">Contact</a></li>
+                    </ul>
+                    <h4 class="text-xs font-semibold uppercase tracking-widest text-surface-100/50 mb-4 mt-6">Solutions</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/revenue-management-engine" class="text-surface-100/70 hover:text-white transition">Revenue Engine</a></li>
+                        <li><a href="/workforce-planning-agent" class="text-surface-100/70 hover:text-white transition">Workforce Agent</a></li>
                     </ul>
                 </div>
 

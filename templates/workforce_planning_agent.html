@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% block title %}Workforce Planning Agent — LeisureLytics{% endblock %}
+
+{% block content %}
+
+<!-- ====================================================================== -->
+<!-- HERO                                                                   -->
+<!-- ====================================================================== -->
+<section class="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
+    <div class="pointer-events-none absolute -top-40 -right-32 h-[460px] w-[460px] rounded-full bg-brand-200/25 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-36 -left-28 h-[420px] w-[420px] rounded-full bg-accent-400/12 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+        <div class="mx-auto max-w-3xl text-center animate-fade-in-up">
+            <p class="text-sm font-semibold text-brand-600 uppercase tracking-widest mb-4">Workforce Planning Agent</p>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-surface-950 leading-[1.1]">
+                From demand signals
+                <span class="bg-gradient-to-r from-brand-600 to-accent-500 bg-clip-text text-transparent">to deployable staffing plans.</span>
+            </h1>
+            <p class="mt-6 text-lg text-surface-600 leading-relaxed max-w-2xl mx-auto">
+                A business-focused planning agent that converts forecast and operational constraints
+                into staffing recommendations your teams can execute, review, and adjust quickly.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- PIPELINE VISUAL                                                        -->
+<!-- ====================================================================== -->
+<section class="py-20 bg-white border-y border-surface-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center mb-12">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-surface-950">Planning flow</h2>
+            <p class="mt-4 text-surface-500">The agent combines forecast, labor rules, and service targets into practical staffing choices.</p>
+        </div>
+
+        <div class="flex flex-wrap justify-center items-center gap-2" x-data="{ shown: false }" x-intersect.once="shown = true">
+            <template x-for="(step, i) in ['Ingest Demand','Normalize Skills','Apply Rules','Generate Shifts','Optimize Coverage','Estimate Cost','Stress Test','Manager Review','Publish Plan']" :key="i">
+                <div class="contents">
+                    <span class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-4 py-2 text-sm font-semibold text-white shadow transition-all duration-500"
+                          :class="shown ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'"
+                          :style="`transition-delay:${i * 80}ms`">
+                        <span class="flex h-5 w-5 items-center justify-center rounded-full bg-white/25 text-[11px] font-bold" x-text="i + 1"></span>
+                        <span x-text="step"></span>
+                    </span>
+                    <svg x-show="i < 8" class="h-4 w-4 text-surface-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+                </div>
+            </template>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- VISUALS                                                                -->
+<!-- ====================================================================== -->
+<section class="py-24 sm:py-28 bg-white">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-8">
+            <article class="rounded-2xl border border-surface-200 p-6 bg-white shadow-sm">
+                <h3 class="text-lg font-bold text-surface-900">Coverage vs Demand</h3>
+                <p class="mt-2 text-sm text-surface-500">The agent proposes staffing coverage that tracks hourly demand while respecting labor constraints.</p>
+                <svg class="mt-5 w-full h-52" viewBox="0 0 560 220" fill="none" aria-label="Coverage versus demand visual">
+                    <rect x="0" y="0" width="560" height="220" rx="14" fill="#F8FAFC"/>
+                    <polyline points="32,165 76,150 120,130 164,98 208,86 252,96 296,118 340,138 384,126 428,100 472,88 516,102" stroke="#1570F5" stroke-width="4" fill="none"/>
+                    <polyline points="32,172 76,162 120,145 164,116 208,96 252,98 296,110 340,126 384,120 428,106 472,100 516,108" stroke="#F97316" stroke-width="3" fill="none" stroke-dasharray="7 6"/>
+                    <text x="38" y="30" fill="#1E3A8A" font-size="12" font-weight="700">Demand</text>
+                    <text x="38" y="46" fill="#C2410C" font-size="12" font-weight="700">Planned coverage</text>
+                </svg>
+            </article>
+
+            <article class="rounded-2xl border border-surface-200 p-6 bg-white shadow-sm">
+                <h3 class="text-lg font-bold text-surface-900">Shift Composition</h3>
+                <p class="mt-2 text-sm text-surface-500">Fine-grained role allocation per time slot, by team type and required skill mix.</p>
+                <svg class="mt-5 w-full h-52" viewBox="0 0 560 220" fill="none" aria-label="Shift composition stacked bars visual">
+                    <rect x="0" y="0" width="560" height="220" rx="14" fill="#F8FAFC"/>
+                    <rect x="56" y="128" width="46" height="62" fill="#3B82F6"/>
+                    <rect x="56" y="92" width="46" height="36" fill="#8B5CF6"/>
+                    <rect x="56" y="70" width="46" height="22" fill="#22C55E"/>
+                    <rect x="134" y="110" width="46" height="80" fill="#3B82F6"/>
+                    <rect x="134" y="72" width="46" height="38" fill="#8B5CF6"/>
+                    <rect x="134" y="50" width="46" height="22" fill="#22C55E"/>
+                    <rect x="212" y="124" width="46" height="66" fill="#3B82F6"/>
+                    <rect x="212" y="88" width="46" height="36" fill="#8B5CF6"/>
+                    <rect x="212" y="64" width="46" height="24" fill="#22C55E"/>
+                    <rect x="290" y="136" width="46" height="54" fill="#3B82F6"/>
+                    <rect x="290" y="98" width="46" height="38" fill="#8B5CF6"/>
+                    <rect x="290" y="76" width="46" height="22" fill="#22C55E"/>
+                    <rect x="368" y="118" width="46" height="72" fill="#3B82F6"/>
+                    <rect x="368" y="82" width="46" height="36" fill="#8B5CF6"/>
+                    <rect x="368" y="58" width="46" height="24" fill="#22C55E"/>
+                    <text x="438" y="72" fill="#1D4ED8" font-size="11" font-weight="700">Ops</text>
+                    <text x="438" y="92" fill="#6D28D9" font-size="11" font-weight="700">Service</text>
+                    <text x="438" y="112" fill="#15803D" font-size="11" font-weight="700">Supervision</text>
+                </svg>
+            </article>
+
+            <article class="rounded-2xl border border-surface-200 p-6 bg-white shadow-sm">
+                <h3 class="text-lg font-bold text-surface-900">Scenario Comparison</h3>
+                <p class="mt-2 text-sm text-surface-500">Managers can compare scenarios such as conservative, balanced, and growth staffing profiles.</p>
+                <svg class="mt-5 w-full h-52" viewBox="0 0 560 220" fill="none" aria-label="Scenario comparison visual">
+                    <rect x="0" y="0" width="560" height="220" rx="14" fill="#F8FAFC"/>
+                    <line x1="44" y1="190" x2="520" y2="190" stroke="#94A3B8" stroke-width="1"/>
+                    <line x1="44" y1="32" x2="44" y2="190" stroke="#94A3B8" stroke-width="1"/>
+                    <polyline points="58,170 138,156 218,140 298,124 378,110 458,96" stroke="#0EA5E9" stroke-width="3" fill="none"/>
+                    <polyline points="58,176 138,166 218,154 298,142 378,132 458,124" stroke="#F97316" stroke-width="3" fill="none"/>
+                    <polyline points="58,162 138,146 218,128 298,108 378,92 458,76" stroke="#16A34A" stroke-width="3" fill="none"/>
+                    <text x="70" y="44" fill="#0EA5E9" font-size="11" font-weight="700">Conservative</text>
+                    <text x="188" y="44" fill="#F97316" font-size="11" font-weight="700">Balanced</text>
+                    <text x="278" y="44" fill="#16A34A" font-size="11" font-weight="700">Growth day</text>
+                </svg>
+            </article>
+
+            <article class="rounded-2xl border border-surface-200 p-6 bg-white shadow-sm">
+                <h3 class="text-lg font-bold text-surface-900">Manager Control Panel</h3>
+                <p class="mt-2 text-sm text-surface-500">Human-in-the-loop controls: approve, lock roles, set service floor, and publish shifts to operations.</p>
+                <svg class="mt-5 w-full h-52" viewBox="0 0 560 220" fill="none" aria-label="Manager control panel visual">
+                    <rect x="0" y="0" width="560" height="220" rx="14" fill="#F8FAFC"/>
+                    <rect x="42" y="34" width="476" height="152" rx="12" fill="#FFFFFF" stroke="#CBD5E1"/>
+                    <rect x="62" y="56" width="180" height="18" rx="6" fill="#E2E8F0"/>
+                    <rect x="62" y="84" width="220" height="14" rx="5" fill="#F1F5F9"/>
+                    <rect x="62" y="106" width="220" height="14" rx="5" fill="#F1F5F9"/>
+                    <rect x="62" y="128" width="220" height="14" rx="5" fill="#F1F5F9"/>
+                    <rect x="316" y="84" width="180" height="74" rx="8" fill="#EFF6FF"/>
+                    <rect x="334" y="102" width="70" height="24" rx="7" fill="#16A34A"/>
+                    <text x="350" y="118" fill="#FFFFFF" font-size="10" font-weight="700">Approve</text>
+                    <rect x="414" y="102" width="70" height="24" rx="7" fill="#2563EB"/>
+                    <text x="431" y="118" fill="#FFFFFF" font-size="10" font-weight="700">Publish</text>
+                </svg>
+            </article>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- CAPABILITIES                                                           -->
+<!-- ====================================================================== -->
+<section class="py-24 sm:py-28 bg-surface-50 border-y border-surface-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-3xl text-center mb-14">
+            <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-surface-950">Business outcomes</h2>
+            <p class="mt-4 text-lg text-surface-500">The workforce planning agent supports both service quality and labor efficiency.</p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="rounded-2xl border border-surface-200 bg-white p-6">
+                <h3 class="text-sm font-bold text-surface-900">Service-level reliability</h3>
+                <p class="mt-2 text-sm text-surface-600">Meet queue and service goals with better shift alignment to demand peaks.</p>
+            </div>
+            <div class="rounded-2xl border border-surface-200 bg-white p-6">
+                <h3 class="text-sm font-bold text-surface-900">Labor cost discipline</h3>
+                <p class="mt-2 text-sm text-surface-600">Reduce overstaffing while protecting critical coverage windows.</p>
+            </div>
+            <div class="rounded-2xl border border-surface-200 bg-white p-6">
+                <h3 class="text-sm font-bold text-surface-900">Explainable recommendations</h3>
+                <p class="mt-2 text-sm text-surface-600">Every plan comes with rationale so managers can trust and adjust confidently.</p>
+            </div>
+            <div class="rounded-2xl border border-surface-200 bg-white p-6">
+                <h3 class="text-sm font-bold text-surface-900">Fast replanning</h3>
+                <p class="mt-2 text-sm text-surface-600">Rebuild plans quickly when weather, events, or attendance expectations change.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- ====================================================================== -->
+<!-- CTA                                                                    -->
+<!-- ====================================================================== -->
+<section class="py-20 bg-surface-950 text-white">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Ready to modernize workforce planning?
+        </h2>
+        <p class="mt-4 text-lg text-surface-100/60 leading-relaxed">
+            Start from your current planning process and move to an agent-assisted workflow with clear manager control.
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/contact"
+               class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-white bg-brand-600 hover:bg-brand-700 shadow-lg shadow-brand-600/25 hover:shadow-xl transition-all text-base font-semibold">
+                Book a Conversation
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="/revenue-management-engine"
+               class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-surface-100 bg-surface-800 ring-1 ring-surface-700 hover:bg-surface-700 transition-all text-base font-semibold">
+                View Revenue Engine
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

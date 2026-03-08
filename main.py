@@ -51,6 +51,24 @@ async def about(request: Request):
     return templates.TemplateResponse("about.html", {"request": request})
 
 
+@app.get("/origin-story", response_class=HTMLResponse)
+async def origin_story(request: Request):
+    """Origin story page — senior-led agentic engineering model."""
+    return templates.TemplateResponse("origin_story.html", {"request": request})
+
+
+@app.get("/revenue-management-engine", response_class=HTMLResponse)
+async def revenue_management_engine(request: Request):
+    """Revenue management page — high-level overview of the full engine."""
+    return templates.TemplateResponse("revenue_management_engine.html", {"request": request})
+
+
+@app.get("/workforce-planning-agent", response_class=HTMLResponse)
+async def workforce_planning_agent(request: Request):
+    """Workforce planning page — business-focused planning agent overview."""
+    return templates.TemplateResponse("workforce_planning_agent.html", {"request": request})
+
+
 @app.get("/contact", response_class=HTMLResponse)
 async def contact(request: Request):
     """Contact page — enquiry form."""
